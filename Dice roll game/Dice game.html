@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eb35dc;
+        }
+        #diceImage {
+            width: 200px;
+            height: 200px;
+        }
+        #rollButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dice Roll Game</h1>
+    <img id="diceImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Alea_1.png/1024px-Alea_1.png" alt="Dice">
+    <button id="rollButton">Roll Dice</button>
+
+    <script> 
+        const diceImages = [
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Alea_1.png/1024px-Alea_1.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Alea_2.png/1024px-Alea_2.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Alea_3.png/1024px-Alea_3.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Alea_4.png/1024px-Alea_4.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Alea_5.png/1024px-Alea_5.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Alea_6.png/1024px-Alea_6.png'
+        ]
+        ;
+
+        document.getElementById('rollButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * 6);
+            document.getElementById('diceImage').src = diceImages[randomIndex];
+        });
+    </script>
+</body>
+</html>
