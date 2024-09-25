@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Analytics Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            color: #0b3d91;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 0; 
+        }
+
+        .header-content {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 24px;
+            color: black; 
+        }
+
+        .header-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #093170; 
+        }
+
+        nav {
+            background-color: #093170;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            background-color: #0b4da1;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .live-camera, .dashboard, .alerts {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .camera-feed img, .dashboard-content img {
+            width: 35vw;
+        }
+
+        .camera-feed, .dashboard-content, .alerts-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .camera-feed p, .dashboard-content p, .alerts-content p {
+            color: white;
+        }
+
+        #btnalert {
+            background-color: rgb(47, 255, 57);
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        #btnalert:hover {
+            background-color: #e53e5e;
+        }
+
+        /* Styling for the second page */
+        .second-page {
+            display: none;
+            background-image: url('women.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .second-page.active {
+            display: block;
+        }
+
+        .btn-sos {
+            background-color: #ff4d6d;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-sos:hover {
+            background-color: #e53e5e;
+        }
+
+        .jumbotron {
+            background-color: rgba(255, 224, 230, 0.8);
+            color: #b03a72;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #b03a72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .toggle-btn {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #093170;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="WSlogo.jpg" alt="Logo">
+        </div>
+        <div class="header-content">
+            <h1>Women Safety Analytics Platform</h1>
+            <p>Government Surveillance and Protection Platform</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a onclick="showSection('live-camera')">Live Camera</a></li>
+            <li><a onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a onclick="showSection('alerts')">Alerts</a></li>
+        </ul>
+    </nav>
+
+    <main id="firstPage">
+        <section id="live-camera" class="section active">
+            <div class="live-camera ">
+                <h2>Live Camera Monitoring</h2>
+                <div class="camera-feed">
+                    <img src="man.jpg" alt="video feed1">
+                    <button id="btnalert">Alert</button>
+                    <p>Automatic alerts will be displayed here and manual alerts will go to the patrol team.</p>
+                </div>
+            </div>
+        </section>
+        <button class="toggle-btn" onclick="togglePage()">More Information</button>
+    </main>
+
+    <div id="secondPage" class="second-page">
+        <div class="jumbotron">
+            <h1>Stay Safe, Stay Empowered</h1>
+            <p>Your safety is our priority. Be alert, stay connected, and get help in an instant!</p>
+            <a href="#" onclick="sos()" class="btn-sos">Send SOS Alert</a>
+        </div>
+        <footer class="footer">
+            &copy; 2024 Women Safety Application
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+
+        function togglePage() {
+            const firstPage = document.getElementById('firstPage');
+            const secondPage = document.getElementById('secondPage');
+
+            firstPage.style.display = firstPage.style.display === 'none' ? 'block' : 'none';
+            secondPage.style.display = secondPage.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function sos() {
+            alert("Sending SOS alert...");
+        }
+    </script>
+</body>
+</html>

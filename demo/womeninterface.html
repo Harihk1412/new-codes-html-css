@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Application</title>
+
+    <style>
+        body {
+            /* url('https://akm-img-a-in.tosshub.com/indiatoday/2024-08/Gif%20%286%29_0.gif?VersionId=kt8Tx1oXegq31EutKU524sqiwAnoWxIC'); */
+
+            background-image: url(women.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(176, 58, 114, 0.8);
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-item {
+            list-style: none;
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: #f4e3e6;
+        }
+
+        /* SOS button styling */
+        .btn-sos {
+            background-color: #ff4d6d;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-sos:hover {
+            background-color: #e53e5e;
+        }
+
+        /* Main section */
+        .jumbotron {
+            background-color: rgba(255, 224, 230, 0.8);
+            color: #b03a72;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        /* Grid layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Card styling */
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .card-header {
+            background-color: #b03a72;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .btn-primary {
+            background-color: #b03a72;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #9d2e66;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #b03a72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Form styling */
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #b03a72;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(176, 58, 114, 0.8);
+        }
+
+        /* List styling */
+        .list-group-item {
+            background-color: rgba(255, 224, 230, 0.8);
+            padding: 10px;
+            border: none;
+        }
+
+        .list-group-item:hover {
+            background-color: #ffc0cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Women Safety App</a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#emergencyContacts">Emergency Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#report">Report Incident</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#safetyTips">Safety Tips</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="jumbotron">
+        <h1>Stay Safe, Stay Empowered</h1>
+        <p>Your safety is our priority. Be alert, stay connected, and get help in an instant!</p>
+        <a href="#" onclick="sos()" class="btn-sos">Send SOS Alert</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Emergency Contacts</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Save Contacts</h5>
+                        <p class="card-text">Add your trusted contacts to get instant help when needed.</p>
+                        <a href="#emergencyContacts" class="btn-primary">View Contacts</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Live Location Sharing</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Share Location</h5>
+                        <p class="card-text">Share your location with loved ones in real time.</p>
+                        <a href="#" onclick="locationsend()" class="btn-primary">Share Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Report Incident</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Report Safely</h5>
+                        <p class="card-text">Report any incident anonymously to the authorities.</p>
+                        <a href="#report"  class="btn-primary">Report Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Contacts Section -->
+    <div class="container py-5" id="emergencyContacts">
+        <h2 class="text-center">Emergency Contacts</h2>
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Contact Name</label>
+                                <input type="text" class="form-control" id="contactName"
+                                    placeholder="Enter contact name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactNumber" class="form-label">Contact Number</label>
+                                <input type="text" class="form-control" id="contactNumber"
+                                    placeholder="Enter contact number">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Contact</button>
+                        </form>
+                        <hr>
+                        <h4>Saved Contacts</h4>
+                        <ul id="contactsList" class="list-group">
+                            <!-- Contacts will be added here dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Section -->
+    <div class="container py-5" id="report">
+        <h2 class="text-center">Report Incident</h2>
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form id="reportForm">
+                            <div class="mb-3">
+                                <label for="incidentLocation" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="incidentLocation"
+                                    placeholder="Enter location of incident">
+                            </div>
+                            <div class="mb-3">
+                                <label for="incidentDetails" class="form-label">Incident Details</label>
+                                <textarea class="form-control" id="incidentDetails" rows="5"
+                                    placeholder="Describe the incident"></textarea>
+                            </div>
+                            <button type="submit" onclick="report()" class="btn btn-danger">Submit Report</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2024 Women Safety Application
+    </footer>
+    <script>
+        // Function to send SOS alert
+        function sos() {
+            alert("Sending SOS alert...");
+        }
+        
+        function report(){
+            alert("Report will be sent to authorities...");
+        }
+        function locationsend(){
+            alert("Location will be sent to saved contacts...");
+        }
+    </script>
+
+</body>
+
+</html>
