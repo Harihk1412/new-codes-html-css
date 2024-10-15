@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cascading Stylesheets Demonstration</title>   
+    <style>
+        .external {
+            background-color: lightyellow;
+            padding: 10px;
+            border: 2px solid orange;
+            margin-bottom: 20px;
+        }
+       .external h2 {
+            color: darkorange;
+        }      
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            color: darkblue;
+        }
+        .embedded {
+            background-color: lightblue;
+            padding: 10px;
+            border: 2px solid blue;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cascading Stylesheets Demonstration</h1>
+
+    <div class="embedded">
+        <h2>Embedded Stylesheet</h2>
+        <p>This section demonstrates the use of an embedded stylesheet. The styles defined in the &lt;style&gt; tag apply to this section.</p>
+    </div>
+
+    <div class="external">
+        <h2>External Stylesheet</h2>
+        <p>This section uses styles from an external stylesheet. The styles are defined in the embedded <code>style</code> tag for demonstration purposes.</p>
+    </div>
+
+    <div style="background-color: lightgreen; padding: 10px; border: 2px solid green; margin-bottom: 20px;">
+        <h2>Inline Styles</h2>
+        <p>This section demonstrates the use of inline styles. The styles are applied directly to this <code>div</code> element.</p>
+    </div>
+
+    <footer>
+        <p>Created as an example of different CSS styles.</p>
+    </footer>
+</body>
+</html>
