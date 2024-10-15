@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+  <title>Books XML with XSLT Transformation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        pre {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Books XML and XSLT Example</h1>
+
+    <h2>XML Document</h2>
+    <pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books [
+    <!ELEMENT books (book+)>
+    <!ELEMENT book (title, author, year, price)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT year (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+]>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+        <year>1925</year>
+        <price>10.99</price>
+    </book>
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <year>1949</year>
+        <price>9.99</price>
+    </book>
+    <book>
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <year>1960</year>
+        <price>14.99</price>
+    </book>
+</books>
+    </pre>
+
+    <h2>XSL Stylesheet</h2>
+    <pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="html" indent="yes"/>
+    
+    <xsl:template match="/books">
+        <html>
+        <head>
+            <title>Book List</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    margin: 20px;
+                }
+                h1 {
+                    text-align: center;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 20px 0;
+                }
+                th, td {
+                    padding: 10px;
+                    text-align: left;
+                    border-bottom: 1px solid #ccc;
+                }
+                th {
+                    background-color: #333;
+                    color: white;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Book List</h1>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                </tr>
+                <xsl:apply-templates select="book"/>
+            </table>
+        </body>
+        </html>
+    </xsl:template>
+
+    <xsl:template match="book">
+        <tr>
+            <td><xsl:value-of select="title"/></td>
+            <td><xsl:value-of select="author"/></td>
+            <td><xsl:value-of select="year"/></td>
+            <td><xsl:value-of select="price"/></td>
+        </tr>
+    </xsl:template>
+</xsl:stylesheet>
+    </pre>
+
+    <h2>How to Use</h2>
+    <p>
+        To view the XML document with the XSL transformation, save the XML content in a file named <code>books.xml</code> 
+        and the XSL content in a file named <code>books.xsl</code>. Ensure both files are in the same directory. 
+        Then, open <code>books.xml</code> in a web browser that supports XSLT transformations, like Internet Explorer.
+    </p>
+</body>
+</html>

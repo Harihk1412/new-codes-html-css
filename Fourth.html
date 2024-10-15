@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Home Page Using Frames</title>
+</head>
+<body>
+    <frameset rows="25%, 75%">
+        <frame srcdoc="<h1>Welcome to My Website</h1>
+                       <p>This is the header section.</p>">
+        <frameset cols="20%, 80%">
+            <frame srcdoc='<ul>
+                             <li><a href="#">Home</a></li>
+                             <li><a href="#">About</a></li>
+                             <li><a href="#">Services</a></li>
+                             <li><a href="#">Contact</a></li>
+                           </ul>'>
+            <frame srcdoc="<p>This is the main content of the home page.</p>">
+        </frameset>
+    </frameset>
+
+    <noframes>
+        Your browser does not support frames.
+    </noframes>
+
+</body>
+</html>
